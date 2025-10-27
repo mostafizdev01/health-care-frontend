@@ -60,7 +60,7 @@ export function Hero() {
                         <Image
                         width={500}
                         height={500}
-                            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop"
+                            src="https://media.istockphoto.com/id/1188648041/photo/male-doctor-using-smartphone-at-workplace-making-online-consultation.jpg?s=612x612&w=0&k=20&c=qAyD8oJnx-lEQkUPcLtIMmXcJhCfQ4TsHRXCX_25qOs="
                             alt="Doctor using AI technology"
                             className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
                         />
