@@ -7,7 +7,7 @@ export function Hero() {
             <div className=" container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-full">
+                        <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full">
                             <Sparkles size={18} />
                             <span className="text-sm font-semibold">
                                 AI-Powered Doctor Matching

@@ -1,4 +1,5 @@
 import { Hero } from "../components/modules/Home/Hero";
+import { TopDoctors } from "../components/modules/Home/TopDoctors";
 
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div>
       <main>
         <Hero />
+        <TopDoctors />
       </main>
     </div>
   );
