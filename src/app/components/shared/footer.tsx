@@ -129,18 +129,18 @@ export function Footer() {
               <li className="flex items-start space-x-2">
                 <MapPin
                   size={18}
-                  className="text-blue-400 mt-1 flex-shrink-0"
+                  className="text-blue-400 mt-1 shrink-0"
                 />
                 <span className="text-gray-400">
                   123 Healthcare Ave, Medical District, NY 10001
                 </span>
               </li>
               <li className="flex items-center space-x-2">
-                <Phone size={18} className="text-blue-400 flex-shrink-0" />
+                <Phone size={18} className="text-blue-400 shrink-0" />
                 <span className="text-gray-400">+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Mail size={18} className="text-blue-400 flex-shrink-0" />
+                <Mail size={18} className="text-blue-400 shrink-0" />
                 <span className="text-gray-400">info@ph-healthcare.com</span>
               </li>
             </ul>
