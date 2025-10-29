@@ -1,6 +1,7 @@
 
 import { Star, MapPin, Award } from 'lucide-react'
 import Image from 'next/image'
+import { Button } from '../../ui/button'
 const doctors = [
     {
         name: 'Dr. Sarah Johnson',
@@ -46,7 +47,7 @@ const doctors = [
 export function TopDoctors() {
     return (
         <section id="doctors" className="w-full bg-white py-16 md:py-24">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                         Meet Our Top Doctors
@@ -94,12 +95,12 @@ export function TopDoctors() {
                                     {doctor.reviews} patient reviews
                                 </div>
                                 <div className=' md:flex gap-3 '>
-                                    <button className="w-full border-2 bg-blue-50 border-blue-500 text-blue-600 py-3 rounded-lg hover:bg-white cursor-pointer transition font-semibold">
+                                    <Button className=" flex-1 border-2 bg-blue-50 border-blue-500 text-blue-600 py-3 rounded-lg hover:bg-white cursor-pointer transition font-semibold">
                                         View Profile
-                                    </button>
-                                    <button className="w-full mt-3 md:mt-0 bg-blue-600 text-white py-3 cursor-pointer rounded-lg hover:bg-blue-700 transition font-semibold">
+                                    </Button>
+                                    <Button className=" flex-1 mt-3 md:mt-0 bg-blue-600 text-white py-3 cursor-pointer rounded-lg hover:bg-blue-700 transition font-semibold">
                                         Appointment
-                                    </button>
+                                    </Button>
                                 </div>
                             </div>
                         </div>
