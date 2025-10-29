@@ -1,3 +1,4 @@
+import { CTA } from "../components/modules/Home/CTA";
 import { FAQ } from "../components/modules/Home/FAQ";
 import { Hero } from "../components/modules/Home/Hero";
 import { HowItWorks } from "../components/modules/Home/HowItWork";
@@ -18,6 +19,7 @@ export default function Home() {
         <TopDoctors />
         <Reviews />
         <FAQ />
+        <CTA />
       </main>
     </div>
   );
