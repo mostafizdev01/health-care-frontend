@@ -1,3 +1,4 @@
+import { FAQ } from "../components/modules/Home/FAQ";
 import { Hero } from "../components/modules/Home/Hero";
 import { HowItWorks } from "../components/modules/Home/HowItWork";
 import { Reviews } from "../components/modules/Home/Review";
@@ -16,6 +17,7 @@ export default function Home() {
         <Services />
         <TopDoctors />
         <Reviews />
+        <FAQ />
       </main>
     </div>
   );
