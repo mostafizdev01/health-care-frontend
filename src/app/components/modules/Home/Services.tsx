@@ -58,7 +58,7 @@ const services = [
         iconBg: 'bg-gradient-to-br from-teal-500 to-teal-600',
     },
 ]
-export function Services() {
+export function ServiceComponents() {
     return (
         <section
             id="services"
@@ -117,9 +117,9 @@ export function Services() {
                         </div>
                     ))}
                 </div>
-                <div className="mt-16 text-center">
+                {/* <div className="mt-16 text-center">
                     <button className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition text-lg font-semibold">Explore All Services</button>
-                </div>
+                </div> */}
             </div>
         </section>
     )

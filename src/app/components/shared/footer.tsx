@@ -16,7 +16,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-2xl font-bold text-blue-400 mb-4">
-              PH HealthCare
+              HealthCare
             </h3>
             <p className="text-gray-400 mb-4">
               AI-powered healthcare platform connecting patients with the right
@@ -141,13 +141,13 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail size={18} className="text-blue-400 shrink-0" />
-                <span className="text-gray-400">info@ph-healthcare.com</span>
+                <span className="text-gray-400">info@support-healthcare.com</span>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} PH HealthCare. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} HealthCare. All rights reserved.</p>
         </div>
       </div>
     </footer>
