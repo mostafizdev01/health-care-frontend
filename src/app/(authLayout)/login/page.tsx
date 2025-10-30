@@ -1,8 +1,9 @@
+import { LoginCard } from "../../components/shared/loginComponents";
 
 export default function Login() {
   return (
     <div>
-      this is login page
+      <LoginCard />
     </div>
   )
 }
