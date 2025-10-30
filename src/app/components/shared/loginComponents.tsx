@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import { useRouter } from "next/navigation"
@@ -17,6 +18,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import loginUser from "@/src/utility/login"
+import { toast } from "sonner"
+import { useState } from "react"
+import checkAuthStatus from "@/src/utility/auth"
 
 // ✅ Validation Schema
 const loginSchema = z.object({
@@ -27,6 +32,7 @@ const loginSchema = z.object({
 type LoginValues = z.infer<typeof loginSchema>
 
 export function LoginCard() {
+    const [loading, setLoading] = useState(false)
     const router = useRouter()
 
     const form = useForm<LoginValues>({
@@ -37,9 +43,42 @@ export function LoginCard() {
         },
     })
 
-    const onSubmit = (values: LoginValues) => {
-        console.log(values)
+    const onSubmit = async (values: LoginValues) => {
+        setLoading(true)
         // TODO: Replace with your login API call
+        try {
+            const res = await loginUser(values.email, values.password);
+
+            if (res?.success) {
+                toast.success(res?.message)
+
+                const authStatus = await checkAuthStatus();
+                if (authStatus?.isAuthenticated && authStatus?.user) {
+                    const { role } = authStatus?.user;
+                    switch (role) {
+                        case "ADMIN": router.push("/services");
+                            break;
+                        case "DOCTOR": router.push("/dashboard/doctor")
+                            break;
+                        case "PATIENT": router.push("/dashboard/patient")
+                            break;
+                        default: router.push("/")
+                            break;
+                    }
+                } else {
+                    throw new Error("Faild to retrieve user information after login!")
+                }
+            }
+
+            if (!res?.success) {
+                toast.error(res?.message)
+            }
+
+        } catch (error: any) {
+            throw new Error(error || "Faild to retrieve user information after login!")
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -96,7 +135,7 @@ export function LoginCard() {
                                             <div className="flex items-center border rounded-lg px-3">
                                                 <Lock size={18} className="text-gray-400 mr-2" />
                                                 <Input
-                                                    type="password"
+                                                    type="text"
                                                     placeholder="Enter your password"
                                                     {...field}
                                                     className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -112,7 +151,7 @@ export function LoginCard() {
                                 type="submit"
                                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2"
                             >
-                                Login
+                                {loading ? "Plase wait..." : "Login"}
                             </Button>
                         </form>
                     </Form>
