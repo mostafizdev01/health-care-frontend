@@ -1,4 +1,5 @@
-import { ServiceComponents } from "../../components/modules/Home/Services";
+import { ServiceComponents } from "@/src/components/module/Home/Services";
+
 
 
 export default function Services() {

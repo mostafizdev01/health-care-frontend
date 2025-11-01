@@ -1,4 +1,4 @@
-import { LoginCard } from "../../components/shared/loginComponents";
+import { LoginCard } from "@/src/components/shared/loginComponents";
 
 export default function Login() {
   return (

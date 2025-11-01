@@ -1,12 +1,10 @@
-import { CTA } from "../components/modules/Home/CTA";
-import { FAQ } from "../components/modules/Home/FAQ";
-import { Hero } from "../components/modules/Home/Hero";
-import { HowItWorks } from "../components/modules/Home/HowItWork";
-import { Reviews } from "../components/modules/Home/Review";
-// import { ServiceComponents } from "../components/modules/Home/Services";
-import { Specialties } from "../components/modules/Home/Specialties";
-import { TopDoctors } from "../components/modules/Home/TopDoctors";
-
+import { CTA } from "@/src/components/module/Home/CTA";
+import { FAQ } from "@/src/components/module/Home/FAQ";
+import { Hero } from "@/src/components/module/Home/Hero";
+import { HowItWorks } from "@/src/components/module/Home/HowItWork";
+import { Reviews } from "@/src/components/module/Home/Review";
+import { Specialties } from "@/src/components/module/Home/Specialties";
+import { TopDoctors } from "@/src/components/module/Home/TopDoctors";
 
 export default function Home() {
   return (
