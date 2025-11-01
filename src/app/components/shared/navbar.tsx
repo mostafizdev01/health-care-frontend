@@ -38,6 +38,12 @@ export function Navbar() {
                         >
                             Reviews
                         </Link>
+                        <Link
+                            href="dashboard"
+                            className="text-gray-700 hover:text-blue-600 transition"
+                        >
+                            dashboard
+                        </Link>
                         <Link href={"/login"} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
                             Login
                         </Link>

@@ -7,10 +7,11 @@ export function proxy(request: NextRequest) {
     const token = request.cookies.get('accessToken')?.value;
 
     const { pathname } = request.nextUrl;
+    
+    const authRoutes = ['/login', '/register', '/forgot-password'];
 
     const protectedPaths = ['/dashboard', '/profile', '/services', '/appointments']; /// ekhane exjectly route path gulai bolte hobe.
 
-    const authRoutes = ['/login', '/register', '/forgot-password'];
 
     const isProtectedPath = protectedPaths.some((path) => { // some => protectedPaths er kono route er sate mile kina dekhbe
        return pathname.startsWith(path);
