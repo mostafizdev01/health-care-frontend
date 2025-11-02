@@ -1,9 +1,15 @@
 "use client"
+import checkAuthStatus from '@/src/utility/auth';
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+
+const authStatus = await checkAuthStatus();
+
 export function Navbar() {
+
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+
     return (
         <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,9 +50,12 @@ export function Navbar() {
                         >
                             dashboard
                         </Link>
-                        <Link href={"/login"} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                        {!authStatus.user ? <Link href={"/login"} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
                             Login
-                        </Link>
+                        </Link> :
+                        <Link href={"/logout"} className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">
+                            Logout
+                        </Link>}
                     </div>
                     <button
                         className="md:hidden text-gray-700"

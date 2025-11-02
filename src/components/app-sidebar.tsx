@@ -2,26 +2,15 @@
 
 import * as React from "react"
 import {
-  IconCamera,
   IconChartBar,
   IconDashboard,
   IconDatabase,
-  IconFileAi,
-  IconFileDescription,
-  IconFileWord,
-  IconFolder,
   IconHelp,
   IconInnerShadowTop,
-  IconListDetails,
-  IconReport,
-  IconSearch,
-  IconSettings,
   IconUsers,
 } from "@tabler/icons-react"
 
-import { NavDocuments } from "@/src/components/nav-documents"
 import { NavMain } from "@/src/components/nav-main"
-import { NavSecondary } from "@/src/components/nav-secondary"
 import { NavUser } from "@/src/components/nav-user"
 import {
   Sidebar,
@@ -32,122 +21,87 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/src/components/ui/sidebar"
+import Link from "next/link"
+import checkAuthStatus from "../utility/auth"
+
+const { user } = await checkAuthStatus();
+const { role } = user;
+
+const navMain = [
+  {
+    title: "Dashboard",
+    url: "",
+    icon: IconDashboard,
+  },
+]
+
+if(role === "ADMIN"){
+  navMain.push(
+    {
+      title: "Manage Admin",
+      url: "manage-admin",
+      icon: IconDatabase
+    },
+    {
+      title: "Manage Doctors",
+      url: "manage-doctor",
+      icon: IconChartBar
+    },
+    {
+      title: "Manage Patient",
+      url: "manage-patient",
+      icon: IconUsers
+    }
+  )
+}
+
+if(role === "DOCTOR"){
+  navMain.push(
+    {
+      title: "View Patient",
+      url: "view-pataient",
+      icon: IconDatabase
+    },
+    {
+      title: "Manage Sidule",
+      url: "manage-sidule",
+      icon: IconChartBar
+    },
+    {
+      title: "View Earning",
+      url: "view-earning",
+      icon: IconHelp
+    }
+  )
+}
+
+if(role === "PATIENT"){
+  navMain.push(
+    {
+      title: "View Doctors",
+      url: "view-doctor",
+      icon: IconDatabase
+    },
+    {
+      title: "My Shedule",
+      url: "my-shedule",
+      icon: IconChartBar
+    },
+    {
+      title: "My Profile",
+      url: "my-profile",
+      icon: IconHelp
+    }
+  )
+}
+
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Mosatafiz",
+    email: user?.email,
     avatar: "/avatars/shadcn.jpg",
-  },
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "#",
-      icon: IconDashboard,
-    },
-    {
-      title: "Lifecycle",
-      url: "#",
-      icon: IconListDetails,
-    },
-    {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Add Doctor",
-      url: "add-doctor",
-      icon: IconUsers,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: IconCamera,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: IconFileDescription,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: IconFileAi,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Settings",
-      url: "#",
-      icon: IconSettings,
-    },
-    {
-      title: "Get Help",
-      url: "#",
-      icon: IconHelp,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: IconSearch,
-    },
-  ],
-  documents: [
-    {
-      name: "Data Library",
-      url: "#",
-      icon: IconDatabase,
-    },
-    {
-      name: "Reports",
-      url: "#",
-      icon: IconReport,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: IconFileWord,
-    },
-  ],
+  }
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -160,18 +114,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
-              <a href="#">
+              <Link href="/">
                 <IconInnerShadowTop className="size-5!" />
-                <span className="text-base font-semibold">Acme Inc.</span>
-              </a>
+                <span className="text-base font-semibold">Health Care</span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain items={navMain} />
+        {/* <NavDocuments items={data.documents} />
+        <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
