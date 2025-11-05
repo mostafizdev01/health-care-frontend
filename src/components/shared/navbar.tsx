@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const authStatus = await checkAuthStatus();
+// const authStatus = await checkAuthStatus();
 
 export function Navbar() {
 
@@ -50,12 +50,13 @@ export function Navbar() {
                         >
                             dashboard
                         </Link>
-                        {!authStatus.user ? <Link href={"/login"} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                        {/* {!authStatus.user ? <Link href={"/login"} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
                             Login
                         </Link> :
-                        <Link href={"/logout"} className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">
+                        } */}
+                        <Link href={"/login"} className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">
                             Logout
-                        </Link>}
+                        </Link>
                     </div>
                     <button
                         className="md:hidden text-gray-700"

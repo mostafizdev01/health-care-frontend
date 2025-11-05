@@ -95,7 +95,7 @@ export function TopDoctors() {
                                     {doctor.reviews} patient reviews
                                 </div>
                                 <div className=' flex gap-3 '>
-                                    <Button className=" w-full flex-1 border-2 bg-blue-50 border-blue-500 text-blue-600 py-3 rounded-lg hover:bg-white cursor-pointer transition font-semibold">
+                                    <Button className=" w-full flex-1 border-2 bg-white border-blue-500 text-blue-600 py-3 rounded-lg hover:bg-blue-50 cursor-pointer transition font-semibold">
                                         View Profile
                                     </Button>
                                     <Button className=" w-full flex-1 md:mt-0 bg-blue-600 text-white py-3 cursor-pointer rounded-lg hover:bg-blue-700 transition font-semibold">

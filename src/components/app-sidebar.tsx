@@ -25,7 +25,8 @@ import Link from "next/link"
 import checkAuthStatus from "../utility/auth"
 
 const { user } = await checkAuthStatus();
-const { role } = user;
+// const { role } = user;
+const role = "ADMIN"
 
 const navMain = [
   {
